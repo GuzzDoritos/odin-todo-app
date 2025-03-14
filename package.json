@@ -1,0 +1,28 @@
+{
+  "name": "webpack-template",
+  "version": "1.0.0",
+  "description": "Base template for my webpack projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuzzDoritos/webpack-template.git"
+  },
+  "author": "GuzzDoritos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuzzDoritos/webpack-template/issues"
+  },
+  "homepage": "https://github.com/GuzzDoritos/webpack-template#readme",
+  "dependencies": {
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0",
+    "webpack-merge": "^6.0.1"
+  }
+}
