@@ -10,7 +10,7 @@ class Project {
     }
 
     addTodo(title, description, dueDate, priority) {
-        this.todoList.push(new Todo(title, description, dueDate, priority));
+        this.todoList.push(new Todo(title, description, dueDate, priority, this.id));
     }
 
     deleteTodo(id) {
