@@ -2,23 +2,20 @@
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     height: 100vh;
-}
-
-#sidebar {
-    min-width: 350px;
-    margin-left: 10px;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     display: flex;
     align-items: center;
     font-size: 0.46em;
-    background: linear-gradient(white, gray 60%);
+    background: linear-gradient(white, rgb(138, 138, 250) 60%);
     border-bottom: 2px solid rgb(112, 112, 112);
     padding-left: 3em;
 }
@@ -32,7 +29,7 @@ header > h1 {
 }
 
 header > h1::before {
-    background-image: url(./img/pngwing.com.png);
+    background-image: url(./assets/img/pngwing.com.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,4 +41,61 @@ header > h1::before {
 
 #main-wrapper {
     display: flex;
+    flex: 1;
+}
+
+#sidebar {
+    background:
+      linear-gradient(
+        to bottom,
+        rgb(255, 136, 202),
+        rgb(248, 101, 182));
+    min-width: 350px;
+    height: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-left: 0;
+    border-bottom: 0;
+    border-top: 0;
+    border-image: 
+      linear-gradient(
+        to bottom, 
+        rgb(255, 210, 241), 
+        rgba(0, 0, 0, 0)
+      ) 1 100%;
+    
+    padding: 10px;
+}
+
+#lists-list-container {
+    background-color: white;
+    border-radius: 8px 8px 0 0;
+    color: black;
+}
+
+#lists-list-container > h2{
+    background: linear-gradient(to right, rgb(255, 2, 107), rgb(255, 71, 148));
+    color: white;
+    font-weight: 600;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px 8px 0 0;
+}
+
+#lists-list {
+    padding: 2px 2px;
+}
+
+.list-branch {
+    list-style: none;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.list-branch:hover {
+    background-color: rgb(100, 100, 250);
+    color: white;
 }
