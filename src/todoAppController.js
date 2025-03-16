@@ -1,8 +1,8 @@
 import Todo from "./todoClass";
 
-export const projects = []
+export const lists = []
 
-class Project {
+class List {
     constructor (name) {
         this.name = name;
         this.id = crypto.randomUUID();
@@ -22,22 +22,22 @@ class Project {
         })
     }
 
-    editProjectName(name) {
+    editListName(name) {
         this.name = name;
     }
 }
 
-export function deleteProject(id) {
-    projects.forEach((project, index) => {
-        if (project.id === id) {
-            projects.splice(index, 1);
+export function deleteList(id) {
+    lists.forEach((list, index) => {
+        if (list.id === id) {
+            lists.splice(index, 1);
             return;
         }
     })
 }
 
-export default function createProject(name) {
-    const project = new Project(name);
-    projects.push(project);
-    return project;
+export default function createList(name) {
+    const list = new List(name);
+    lists.push(list);
+    return list;
 }
