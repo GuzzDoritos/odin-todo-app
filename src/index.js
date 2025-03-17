@@ -20,6 +20,7 @@ function addDefaultTodo() {
 window.addEventListener("DOMContentLoaded", () => {
     addDefaultTodo();
     renderLists(lists);
+    displayList(lists[0])
 })
 
 addListBtn.addEventListener("click", renderListCreatorModal);
