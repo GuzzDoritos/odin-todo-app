@@ -23,7 +23,7 @@ export function renderLists(lists) {
     listsList.appendChild(tree);
 }
 
-function displayList(list) {
+export function displayList(list) {
     todoDisplay.replaceChildren();
 
     const addTaskBtn = document.createElement("button");
@@ -37,15 +37,41 @@ function displayList(list) {
     const todoList = list.todoList;
     
     for (const todo of todoList) {
-        const para = document.createElement("p");
-        para.textContent = `Name: ${todo.title} || Desc: ${todo.description}`;
+        const todoDiv = createTodoDiv(todo)
 
-        todoDisplay.appendChild(para);
+        todoDisplay.appendChild(todoDiv);
     }
+}
+
+function createTodoDiv(todo) {
+    const todoDiv = document.createElement("div");
+    todoDiv.className = "todo-div";
+
+    const todoName = document.createElement("h3");
+    const todoDescription = document.createElement("p");
+    const todoDate = document.createElement("p");
+    const openTodo = document.createElement("button");
+
+    todoName.textContent = todo.title;
+    todoDescription.textContent = todo.description;
+    todoDate.textContent = todo.dueDate;
+    openTodo.textContent = "Open Todo";
+
+    todoDiv.appendChild(todoName);
+    todoDiv.appendChild(todoDescription);
+    todoDiv.appendChild(todoDate);
+    todoDiv.appendChild(openTodo);
+
+    return todoDiv;
 }
 
 export function renderListCreatorModal() {
     modal.showModal();
+    modal.replaceChildren();    
+
+    const message = document.createElement("p");
+
+    modal.appendChild(message);
 
     const nameInput = createTextInput("Name", "name-input");
     
@@ -54,12 +80,16 @@ export function renderListCreatorModal() {
     const addBtn = document.createElement("button");
     addBtn.textContent = "Add List";
     addBtn.addEventListener("click", () => {
+        message.textContent = "";
         const name = nameInput.input.value;
-        if (name.trim() === "") return;
+        if (name.trim() === "") {
+            message.textContent = "The list name cannot be blank.";
+            return;
+        };
         createList(name);
 
         renderLists(lists);
-        modal.replaceChildren();
+        
         modal.close();
     })
     
