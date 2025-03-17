@@ -131,3 +131,21 @@ input {
 input:focus{
     outline: none;
 }
+
+#add-list {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(49, 253, 117), rgb(9, 233, 9));
+    color: rgb(3, 88, 32);
+    padding: 4px 7px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-align: right;
+    cursor: pointer;
+}
+
+#add-list::before {
+    content: "+ ";
+    font-size: 1.2rem;
+}
