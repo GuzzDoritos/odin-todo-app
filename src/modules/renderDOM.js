@@ -1,7 +1,8 @@
 // cache DOM
 
+import { differenceInDays, format } from "date-fns";
 import createList, { lists } from "./classes/listClass";
-import { createTextInput } from "./dom_modules/createInput";
+import { createInput } from "./dom_modules/createInput";
 
 const listsList = document.querySelector("#lists-list");
 const todoDisplay = document.querySelector("#todo-display");
@@ -32,7 +33,7 @@ export function displayList(list) {
 
 
     todoDisplay.appendChild(addTaskBtn)
-    // addTaskBtn.addEventListener("click");
+    addTaskBtn.addEventListener("click", renderTodoCreatorModel);
 
     const todoList = list.todoList;
     
@@ -54,7 +55,7 @@ function createTodoDiv(todo) {
 
     todoName.textContent = todo.title;
     todoDescription.textContent = todo.description;
-    todoDate.textContent = todo.dueDate;
+    todoDate.textContent = format(todo.dueDate, "dd/MM/yyyy") + " - " + "in " + (differenceInDays(todo.dueDate, new Date()) + 1) + " day(s).";
     openTodo.textContent = "Open Todo";
 
     todoDiv.appendChild(todoName);
@@ -70,14 +71,9 @@ export function renderListCreatorModal() {
     modal.replaceChildren();    
 
     const message = document.createElement("p");
-
-    modal.appendChild(message);
-
-    const nameInput = createTextInput("Name", "name-input");
-    
-    modal.appendChild(nameInput.label);
-
+    const nameInput = createInput("Name", "name-input", "text");
     const addBtn = document.createElement("button");
+
     addBtn.textContent = "Add List";
     addBtn.addEventListener("click", () => {
         message.textContent = "";
@@ -92,9 +88,12 @@ export function renderListCreatorModal() {
         
         modal.close();
     })
-    
+
+    modal.appendChild(message);
+    modal.appendChild(nameInput.label);    
     modal.appendChild(addBtn);
 }
+
 function renderTodoCreatorModel() {
     modal.showModal();
     modal.replaceChildren();
