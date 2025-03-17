@@ -95,3 +95,17 @@ export function renderListCreatorModal() {
     
     modal.appendChild(addBtn);
 }
+function renderTodoCreatorModel() {
+    modal.showModal();
+    modal.replaceChildren();
+
+    const message = document.createElement("p");
+    const titleInput = createTextInput("Title", "title-input");
+    const descriptionInput = createTextInput("Description", "description-input");
+    const dueDateInput = createDateInput("Due date:", "due-date-input");
+
+    modal.appendChild(message);
+    modal.appendChild(titleInput.label);
+    modal.appendChild(descriptionInput.label);
+    modal.appendChild(dueDateInput.label);
+}
