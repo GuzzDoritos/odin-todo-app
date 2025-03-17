@@ -1,3 +1,7 @@
+const HIGH = 2;
+const MEDIUM = 1;
+const LOW = 0;
+
 export default class Todo {
     constructor(title, description, dueDate, priority, listID) {
         this.id = crypto.randomUUID();
