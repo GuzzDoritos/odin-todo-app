@@ -1,7 +1,9 @@
 import "./style.css";
 import dateFormatter from "./modules/dateFormatter"
 import createList, { lists, deleteList } from "./modules/classes/listClass";
-import { renderLists } from "./modules/renderDOM";
+import { renderLists, showListCreatorModal } from "./modules/renderDOM";
+
+const addListBtn = document.querySelector("#add-list");
 
 let defaultTodoDeleted = false;
 let defaultTodoCreated = false;
@@ -19,3 +21,5 @@ window.addEventListener("DOMContentLoaded", () => {
     addDefaultTodo();
     renderLists(lists);
 })
+
+addListBtn.addEventListener("click", renderListCreatorModal);
