@@ -1,9 +1,14 @@
 // cache DOM
 
+import createList, { lists } from "./classes/listClass";
+import { createTextInput } from "./dom_modules/createInput";
+
 const listsList = document.querySelector("#lists-list");
-const todoDisplay = document.querySelector("#todo-display")
+const todoDisplay = document.querySelector("#todo-display");
+const modal = document.querySelector("#create");
 
 export function renderLists(lists) {
+    listsList.replaceChildren();
     const tree = document.createElement("ul");
     for (const list of lists) {
         const listBranch = document.createElement("li");
@@ -37,5 +42,26 @@ function displayList(list) {
 
         todoDisplay.appendChild(para);
     }
+}
 
+export function renderListCreatorModal() {
+    modal.showModal();
+
+    const nameInput = createTextInput("Name", "name-input");
+    
+    modal.appendChild(nameInput.label);
+
+    const addBtn = document.createElement("button");
+    addBtn.textContent = "Add List";
+    addBtn.addEventListener("click", () => {
+        const name = nameInput.input.value;
+        if (name.trim() === "") return;
+        createList(name);
+
+        renderLists(lists);
+        modal.replaceChildren();
+        modal.close();
+    })
+    
+    modal.appendChild(addBtn);
 }
