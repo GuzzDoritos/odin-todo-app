@@ -1,4 +1,4 @@
-import { createInput } from "./createInput"
+import { createInput, createPriorityInput } from "./createInput"
 import createList, {lists} from "../classes/listClass";
 import { renderLists } from "../renderDOM";
 
@@ -38,9 +38,11 @@ export function renderTodoCreatorModal(modal) {
     const titleInput = createInput("Title", "title-input", "text");
     const descriptionInput = createInput("Description", "description-input", "text");
     const dueDateInput = createInput("Due date:", "due-date-input", "date");
+    const priorityInput = createPriorityInput()
 
     modal.appendChild(message);
     modal.appendChild(titleInput.label);
     modal.appendChild(descriptionInput.label);
     modal.appendChild(dueDateInput.label);
+    modal.appendChild(priorityInput.label);
 }
