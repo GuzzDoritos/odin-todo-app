@@ -1,3 +1,5 @@
+import { HIGH, LOW, MEDIUM } from "../classes/todoClass";
+
 export function createInput(labelName, inputName, type) {
     const label = createLabelElement(labelName, inputName);
     
@@ -25,5 +27,15 @@ function createInputElement(type, inputName) {
 export function createPriorityInput() {
     const label = createLabel("Priority", "priority-input");
 
-    const selectInput = document.createElement()
+    const selectInput = document.createElement("select")
+    selectInput.name = "priority";
+    selectInput.id = "priority";
+    const lowOption = document.createElement("option");
+    const mediumOption = document.createElement("option");
+    const highOption = document.createElement("option");
+    lowOption.value = LOW;
+    mediumOption.value = MEDIUM;
+    highOption.value = HIGH;
+
+    return {label, lowOption, mediumOption, highOption};
 }
