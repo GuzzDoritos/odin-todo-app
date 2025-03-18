@@ -34,13 +34,15 @@ export function createPriorityInput() {
     const lowOption = document.createElement("option");
     const mediumOption = document.createElement("option");
     const highOption = document.createElement("option");
-    lowOption.value = LOW;
-    mediumOption.value = MEDIUM;
-    highOption.value = HIGH;
+    [lowOption.value, lowOption.textContent] = [LOW, "Low"];
+    [mediumOption.value, mediumOption.textContent] = [LOW, "Medium"];
+    [highOption.value, highOption.textContent] = [LOW, "High"];
 
     selectInput.appendChild(lowOption);
     selectInput.appendChild(mediumOption);
     selectInput.appendChild(highOption);
+
+    label.appendChild(selectInput)
 
     return {label, lowOption, mediumOption, highOption};
 }
