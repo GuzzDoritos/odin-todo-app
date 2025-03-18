@@ -44,5 +44,5 @@ export function createPriorityInput() {
 
     label.appendChild(selectInput)
 
-    return {label, lowOption, mediumOption, highOption};
+    return {label, selectInput};
 }
