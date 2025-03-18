@@ -1,8 +1,7 @@
 import "./style.css";
-import dateFormatter from "./modules/dateFormatter"
-import createList, { lists, deleteList } from "./modules/classes/listClass";
-import { renderLists, renderListCreatorModal, displayList } from "./modules/renderDOM";
-import { format, add } from "date-fns";
+import createList, { lists } from "./modules/classes/listClass";
+import { renderLists, displayList } from "./modules/renderDOM";
+import { add } from "date-fns";
 
 let defaultTodoDeleted = false;
 let defaultTodoCreated = false;
