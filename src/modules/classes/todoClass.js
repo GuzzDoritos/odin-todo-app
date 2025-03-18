@@ -1,6 +1,6 @@
-const HIGH = 2;
-const MEDIUM = 1;
-const LOW = 0;
+export const HIGH = 2;
+export const MEDIUM = 1;
+export const LOW = 0;
 
 export default class Todo {
     constructor(title, description, dueDate, priority, listID) {
