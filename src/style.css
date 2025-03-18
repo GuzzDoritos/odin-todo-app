@@ -117,7 +117,8 @@ label {
     font-size: 0.8rem;
 }
 
-input {
+input,
+select {
     display: block;
     width: 100%;
     font-size: 0.8rem;
