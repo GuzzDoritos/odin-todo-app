@@ -35,8 +35,8 @@ export function createPriorityInput() {
     const mediumOption = document.createElement("option");
     const highOption = document.createElement("option");
     [lowOption.value, lowOption.textContent] = [LOW, "Low"];
-    [mediumOption.value, mediumOption.textContent] = [LOW, "Medium"];
-    [highOption.value, highOption.textContent] = [LOW, "High"];
+    [mediumOption.value, mediumOption.textContent] = [MEDIUM, "Medium"];
+    [highOption.value, highOption.textContent] = [HIGH, "High"];
 
     selectInput.appendChild(lowOption);
     selectInput.appendChild(mediumOption);
