@@ -2,6 +2,7 @@
 
 import { differenceInDays, format, parse, parseISO } from "date-fns";
 import { renderListCreatorModal, renderTodoCreatorModal } from "./dom_modules/renderModal";
+import createTodoDiv from "./dom_modules/createTodoDiv";
 
 const addListBtn = document.querySelector("#add-list");
 const listsList = document.querySelector("#lists-list");
@@ -43,26 +44,4 @@ export function displayList(list) {
 
         todoDisplay.appendChild(todoDiv);
     }
-}
-
-function createTodoDiv(todo) {
-    const todoDiv = document.createElement("div");
-    todoDiv.className = "todo-div";
-
-    const todoName = document.createElement("h3");
-    const todoDescription = document.createElement("p");
-    const todoDate = document.createElement("p");
-    const openTodo = document.createElement("button");
-
-    todoName.textContent = todo.title;
-    todoDescription.textContent = todo.description;
-    todoDate.textContent = format(todo.dueDate, "dd/MM/yyyy") + " - " + "in " + (differenceInDays(todo.dueDate, new Date()) + 1) + " day(s).";
-    openTodo.textContent = "Open Todo";
-
-    todoDiv.appendChild(todoName);
-    todoDiv.appendChild(todoDescription);
-    todoDiv.appendChild(todoDate);
-    todoDiv.appendChild(openTodo);
-
-    return todoDiv;
 }
