@@ -34,7 +34,6 @@ export function displayList(list) {
     addTodoBtn.textContent = "Add Todo";
     addTodoBtn.className = "add-todo-btn";
 
-    todoDisplay.appendChild(addTodoBtn);
     addTodoBtn.addEventListener("click", () => {renderTodoCreatorModal(modal, list)});
 
     const todoList = list.todoList;
@@ -44,4 +43,6 @@ export function displayList(list) {
 
         todoDisplay.appendChild(todoDiv);
     }
+
+    todoDisplay.appendChild(addTodoBtn);
 }
