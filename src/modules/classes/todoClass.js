@@ -12,7 +12,7 @@ export default class Todo {
         this.priority = priority;
     }
 
-    markAsDone() {
-        this.isDone = true;
+    toggleDone() {
+        this.isDone = this.isDone ? false : true;
     }    
 }
