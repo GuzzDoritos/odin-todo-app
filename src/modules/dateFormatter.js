@@ -1,5 +1,5 @@
-export default function dateFormatter(day, month, year) {
-    day = day < 10 ? "0" + day : day
-    month = month < 10 ? "0" + month : month;
-    return `${day}/${month}/${year}`;
+export default function dateFormatter(value) {
+    const [year, month, day] = value.split("-")
+    const date = new Date(year, Number.parseInt(month) - 1, day);
+    return date;
 }
