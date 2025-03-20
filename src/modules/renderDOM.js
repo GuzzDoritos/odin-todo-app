@@ -1,6 +1,6 @@
 // cache DOM
 
-import { differenceInDays, format } from "date-fns";
+import { differenceInDays, format, parse, parseISO } from "date-fns";
 import { renderListCreatorModal, renderTodoCreatorModal } from "./dom_modules/renderModal";
 
 const addListBtn = document.querySelector("#add-list");
@@ -34,7 +34,7 @@ export function displayList(list) {
     addTodoBtn.className = "add-todo-btn";
 
     todoDisplay.appendChild(addTodoBtn);
-    addTodoBtn.addEventListener("click", () => {renderTodoCreatorModal(modal)});
+    addTodoBtn.addEventListener("click", () => {renderTodoCreatorModal(modal, list)});
 
     const todoList = list.todoList;
     
@@ -57,6 +57,7 @@ function createTodoDiv(todo) {
     todoName.textContent = todo.title;
     todoDescription.textContent = todo.description;
     todoDate.textContent = format(todo.dueDate, "dd/MM/yyyy") + " - " + "in " + (differenceInDays(todo.dueDate, new Date()) + 1) + " day(s).";
+    console.log(todo.dueDate.toLocaleString())
     openTodo.textContent = "Open Todo";
 
     todoDiv.appendChild(todoName);
