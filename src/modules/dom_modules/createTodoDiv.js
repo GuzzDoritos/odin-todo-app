@@ -2,7 +2,7 @@ import { differenceInDays, format } from "date-fns";
 
 export default function createTodoDiv(todo) {
     const todoDiv = document.createElement("div");
-    todoDiv.className = "todo-div";
+    todoDiv.classList = todo.isDone ? "todo-div todo-done" : "todo-div";
 
     const buttonSideDiv = document.createElement("div")
     buttonSideDiv.className = "todo-div-button-side";
