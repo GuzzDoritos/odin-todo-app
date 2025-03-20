@@ -30,6 +30,12 @@ export function renderLists(lists) {
 export function displayList(list) {
     todoDisplay.replaceChildren();
 
+    const listTitle = document.createElement("h1");
+    listTitle.textContent = list.name;
+    listTitle.className = "list-title";
+
+    todoDisplay.appendChild(listTitle);
+
     const addTodoBtn = document.createElement("button");
     addTodoBtn.textContent = "Add Todo";
     addTodoBtn.className = "add-todo-btn";
