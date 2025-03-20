@@ -12,7 +12,7 @@ export default class Todo {
         this.priority = priority;
     }
 
-    changeValue(property, value) {
-        this[property] = value;
+    markAsDone() {
+        this.isDone = true;
     }    
 }
