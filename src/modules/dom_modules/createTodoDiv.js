@@ -10,6 +10,7 @@ export default function createTodoDiv(todo) {
     const markAsDoneButton = document.createElement("input");
     markAsDoneButton.type = "checkbox";
     markAsDoneButton.className = "mark-as-done-btn";
+    markAsDoneButton.textContent = todo.isDone ? "X" : "";
     markAsDoneButton.addEventListener("click", () => {
         todo.toggleDone();
         displayList(lists.find((obj) => obj.id === todo.listID));
