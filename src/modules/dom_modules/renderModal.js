@@ -1,6 +1,9 @@
 import { createInput, createPriorityInput } from "./createInput"
 import createList, {lists} from "../classes/listClass";
-import { renderLists } from "../renderDOM";
+import { displayList, renderLists } from "../renderDOM";
+import validateInput from "./validateInput";
+import { format } from "date-fns";
+import dateFormatter from "../dateFormatter";
 
 export function renderListCreatorModal(modal) {
     modal.showModal();
@@ -30,7 +33,7 @@ export function renderListCreatorModal(modal) {
     modal.appendChild(addBtn);
 }
 
-export function renderTodoCreatorModal(modal) {
+export function renderTodoCreatorModal(modal, list) {
     modal.showModal();
     modal.replaceChildren();
 
@@ -38,11 +41,38 @@ export function renderTodoCreatorModal(modal) {
     const titleInput = createInput("Title", "title-input", "text");
     const descriptionInput = createInput("Description", "description-input", "text");
     const dueDateInput = createInput("Due date:", "due-date-input", "date");
-    const priorityInput = createPriorityInput()
+    const priorityInput = createPriorityInput();
+    const addBtn = document.createElement("button");
 
     modal.appendChild(message);
     modal.appendChild(titleInput.label);
     modal.appendChild(descriptionInput.label);
     modal.appendChild(dueDateInput.label);
     modal.appendChild(priorityInput.label);
+    modal.appendChild(addBtn);
+
+    addBtn.textContent = "Add To-do";
+    addBtn.addEventListener("click", () => {
+        const title = titleInput.input.value.trim();
+        let description = descriptionInput.input.value.trim();
+        const dueDateValue = dueDateInput.input.value;
+        const priority = priorityInput.selectInput.value;
+
+        const isPriorityValid = validateInput(Number.parseInt(priority), "priority");
+        
+        if (!isPriorityValid) return;
+        
+        if ((title || dueDate) === "") return;
+        if (description === "") description = "No description provided.";
+
+        const dueDate = dateFormatter(dueDateValue);
+
+        list.addTodo(title, description, dueDate, Number.parseInt(priority));
+        console.log(list);
+        console.log(dueDateInput.input.value);
+
+        modal.replaceChildren();
+        modal.close();
+        displayList(list);
+    })
 }
