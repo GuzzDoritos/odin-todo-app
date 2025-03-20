@@ -25,7 +25,7 @@ function createInputElement(type, inputName) {
 }
 
 export function createPriorityInput() {
-    const label = createLabelElement("Priority", "priority-input");
+    const label = createLabelElement("Priority", "priority");
 
     const selectInput = document.createElement("select")
     selectInput.name = "priority";
