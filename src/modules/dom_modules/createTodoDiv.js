@@ -12,6 +12,7 @@ export default function createTodoDiv(todo) {
     markAsDoneButton.className = "mark-as-done-btn";
     markAsDoneButton.addEventListener("click", () => {
         todo.toggleDone();
+        displayList(lists.find((obj) => obj.id === todo.listID));
     })
 
     buttonSideDiv.appendChild(markAsDoneButton);
