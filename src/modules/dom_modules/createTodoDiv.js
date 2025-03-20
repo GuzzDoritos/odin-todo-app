@@ -4,6 +4,12 @@ export default function createTodoDiv(todo) {
     const todoDiv = document.createElement("div");
     todoDiv.className = "todo-div";
 
+    const markAsDoneButton = document.createElement("input");
+    markAsDoneButton.type = "checkbox";
+    markAsDoneButton.className = "mark-as-done-btn";
+    markAsDoneButton.addEventListener("click", () => {
+        todo.toggleDone();
+    })
 
     const todoName = document.createElement("h3");
     const todoDescription = document.createElement("p");
@@ -15,6 +21,7 @@ export default function createTodoDiv(todo) {
     todoDate.textContent = format(todo.dueDate, "dd/MM/yyyy") + " - " + "in " + (differenceInDays(todo.dueDate, new Date()) + 1) + " day(s).";
     openTodo.textContent = "Open Todo";
 
+    todoDiv.appendChild(markAsDoneButton);
     todoDiv.appendChild(todoName);
     todoDiv.appendChild(todoDescription);
     todoDiv.appendChild(todoDate);
