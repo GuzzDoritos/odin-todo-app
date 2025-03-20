@@ -7,8 +7,7 @@ export default function createTodoDiv(todo) {
     const buttonSideDiv = document.createElement("div")
     buttonSideDiv.className = "todo-div-button-side";
 
-    const markAsDoneButton = document.createElement("input");
-    markAsDoneButton.type = "checkbox";
+    const markAsDoneButton = document.createElement("button");
     markAsDoneButton.className = "mark-as-done-btn";
     markAsDoneButton.textContent = todo.isDone ? "X" : "";
     markAsDoneButton.addEventListener("click", () => {
