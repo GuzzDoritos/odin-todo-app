@@ -57,7 +57,6 @@ function createTodoDiv(todo) {
     todoName.textContent = todo.title;
     todoDescription.textContent = todo.description;
     todoDate.textContent = format(todo.dueDate, "dd/MM/yyyy") + " - " + "in " + (differenceInDays(todo.dueDate, new Date()) + 1) + " day(s).";
-    console.log(todo.dueDate.toLocaleString())
     openTodo.textContent = "Open Todo";
 
     todoDiv.appendChild(todoName);
