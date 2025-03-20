@@ -11,7 +11,7 @@ export default function createTodoDiv(todo) {
 
     const markAsDoneButton = document.createElement("button");
     markAsDoneButton.className = "mark-as-done-btn";
-    markAsDoneButton.textContent = todo.isDone ? "X" : "";
+    markAsDoneButton.textContent = "X";
     markAsDoneButton.addEventListener("click", () => {
         todo.toggleDone();
         displayList(lists.find((obj) => obj.id === todo.listID));
@@ -25,14 +25,12 @@ export default function createTodoDiv(todo) {
     const todoName = document.createElement("h3");
     const todoDescription = document.createElement("p");
     const todoDate = document.createElement("p");
-    const openTodo = document.createElement("button");
 
     todoName.textContent = todo.title;
     todoDescription.textContent = todo.description;
     todoDate.textContent = format(todo.dueDate, "dd/MM/yyyy") + " - " + "in " + (differenceInDays(todo.dueDate, new Date()) + 1) + " day(s).";
-    openTodo.textContent = "Open Todo";
 
-    textSideDiv.append(todoName, todoDescription, todoDate, openTodo);
+    textSideDiv.append(todoName, todoDescription, todoDate);
 
     todoDiv.append(buttonSideDiv, textSideDiv)
 
