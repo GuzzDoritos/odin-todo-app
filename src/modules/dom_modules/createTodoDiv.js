@@ -1,4 +1,6 @@
 import { differenceInDays, format } from "date-fns";
+import { displayList } from "../renderDOM";
+import { lists } from "../classes/listClass";
 
 export default function createTodoDiv(todo) {
     const todoDiv = document.createElement("div");
