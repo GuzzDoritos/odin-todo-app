@@ -159,8 +159,9 @@ select:focus {
 
 .todo-div {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 20px;
+    column-gap: 20px;
     padding: 10px;
     width: 90%;
     margin: auto;
@@ -221,3 +222,20 @@ select:focus {
     color: rgb(41, 41, 41);
     margin-top: 5px;
 }
+
+.expanded-todo-div {
+    max-height: 0;
+    overflow: hidden;
+    flex: 0 0 100%;
+    margin-top: 0;
+    transition: max-height 0.1s ease-out;
+    transition: margin-top 0.1s ease-out;
+}
+
+.expanded-todo-div.show {
+    display: block;
+    margin-top: 10px;
+    max-height: 500px;
+    transition: max-height 0.5s ease-in;
+}
+
