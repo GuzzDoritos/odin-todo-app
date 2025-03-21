@@ -52,27 +52,31 @@ export function renderTodoCreatorModal(modal, list) {
     modal.appendChild(addBtn);
 
     addBtn.textContent = "Add To-do";
-    addBtn.addEventListener("click", () => {
+    addBtn.addEventListener("click", submitForm);
+
+    function submitForm() {
         const title = titleInput.input.value.trim();
         let description = descriptionInput.input.value.trim();
         const dueDateValue = dueDateInput.input.value;
         const priority = priorityInput.selectInput.value;
 
-        const isPriorityValid = validateInput(Number.parseInt(priority), "priority");
-        
-        if (!isPriorityValid) return;
-        
-        if (title == "" || dueDateValue == "") return;
         if (description === "") description = "No description provided.";
+
+        if (!validateForm(priority, title, dueDateValue)) return;
 
         const dueDate = dateFormatter(dueDateValue);
 
         list.addTodo(title, description, dueDate, Number.parseInt(priority));
-        console.log(list);
-        console.log(dueDateInput.input.value);
 
         modal.replaceChildren();
         modal.close();
         displayList(list);
-    })
+    }
+
+    function validateForm(priority, title, dueDateValue) {        
+        const isPriorityValid = validateInput(Number.parseInt(priority), "priority");
+
+        if (!isPriorityValid || title == "" || dueDateValue == "") return false
+        else return true;
+    }
 }
