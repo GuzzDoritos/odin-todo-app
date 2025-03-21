@@ -3,6 +3,7 @@
 import { differenceInDays, format, parse, parseISO } from "date-fns";
 import { renderListCreatorModal, renderTodoCreatorModal } from "./dom_modules/renderModal";
 import createTodoDiv from "./dom_modules/createTodoDiv";
+import expandTodo from "./dom_modules/expandTodo";
 
 const addListBtn = document.querySelector("#add-list");
 const listsList = document.querySelector("#lists-list");
@@ -46,7 +47,6 @@ export function displayList(list) {
     
     for (const todo of todoList) {
         const todoDiv = createTodoDiv(todo)
-
         todoDisplay.appendChild(todoDiv);
     }
 
