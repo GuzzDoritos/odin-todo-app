@@ -2,6 +2,7 @@ import "./style.css";
 import createList, { lists } from "./modules/classes/listClass";
 import { renderLists, displayList } from "./modules/renderDOM";
 import { add } from "date-fns";
+import { HIGH } from "./modules/classes/todoClass";
 
 let defaultTodoDeleted = false;
 let defaultTodoCreated = false;
@@ -11,7 +12,7 @@ function addDefaultTodo() {
 
     const defaultList = createList("Default");
     const date = new Date();
-    defaultList.addTodo("Create a new to-do!", "Press on the button that is somewhere in this page to create a new to-do task.", add(date, {days: 1}), "normal");
+    defaultList.addTodo("Create a new to-do!", "Press on the button that is somewhere in this page to create a new to-do task.", add(date, {days: 1}), HIGH);
     defaultTodoCreated = true;
 }
 
