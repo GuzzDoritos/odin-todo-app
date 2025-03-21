@@ -62,7 +62,7 @@ export function renderTodoCreatorModal(modal, list) {
         
         if (!isPriorityValid) return;
         
-        if ((title || dueDate) === "") return;
+        if (title == "" || dueDateValue == "") return;
         if (description === "") description = "No description provided.";
 
         const dueDate = dateFormatter(dueDateValue);
