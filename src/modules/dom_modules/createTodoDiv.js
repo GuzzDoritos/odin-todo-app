@@ -1,6 +1,5 @@
 import { differenceInDays, format } from "date-fns";
-import { displayList } from "../renderDOM";
-import { lists } from "../classes/listClass";
+import { createExpandedTodoDiv, showExpandedTodo } from "./expandTodo";
 
 export default function createTodoDiv(todo) {
     const todoDiv = document.createElement("div");
@@ -14,7 +13,8 @@ export default function createTodoDiv(todo) {
     markAsDoneButton.textContent = "X";
     markAsDoneButton.addEventListener("click", () => {
         todo.toggleDone();
-        displayList(lists.find((obj) => obj.id === todo.listID));
+        todoDiv.classList.toggle("todo-done")
+        console.log(todo.isDone)
     })
 
     buttonSideDiv.appendChild(markAsDoneButton);
@@ -32,7 +32,14 @@ export default function createTodoDiv(todo) {
 
     textSideDiv.append(todoName, todoDescription, todoDate);
 
-    todoDiv.append(buttonSideDiv, textSideDiv)
+    const expandedTodoDiv = createExpandedTodoDiv(todo, todoDiv);
 
+    todoDiv.append(buttonSideDiv, textSideDiv, expandedTodoDiv)
+
+
+    todoDiv.addEventListener("click", (event) => {
+        if (event.target.classList.contains("mark-as-done-btn")) return;
+        showExpandedTodo(expandedTodoDiv)
+    })
     return todoDiv;
 }
