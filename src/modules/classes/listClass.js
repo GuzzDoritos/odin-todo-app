@@ -1,15 +1,16 @@
 import Todo from "./todoClass";
 
+// Array containing all lists
 export const lists = []
 
 class List {
     constructor (name) {
         this.name = name;
         this.id = crypto.randomUUID();
-        this.todoList = [];
+        this.todoList = []; // Array containing all todos in a given list
     }
 
-    addTodo(title, description, dueDate, priority) {
+    addTodo(title, description, dueDate, priority ) { //Valid priority values: HIGH = 2, MEDIUM = 1, LOW = 0. dueDate is always a Date object
         this.todoList.push(new Todo(title, description, dueDate, priority, this.id));
     }
 
