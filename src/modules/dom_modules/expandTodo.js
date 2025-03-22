@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { HIGH, LOW, MEDIUM } from "../classes/todoClass";
 
-export function createExpandedTodoDiv(todo, todoDiv) {
+export function createExpandedTodoDiv(todo) {
     // Create parent element
     const expandedTodoDiv = document.createElement("div");
     expandedTodoDiv.className = "expanded-todo-div";
