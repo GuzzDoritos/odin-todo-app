@@ -1,3 +1,4 @@
+// Constants for priority values
 export const HIGH = 2;
 export const MEDIUM = 1;
 export const LOW = 0;
