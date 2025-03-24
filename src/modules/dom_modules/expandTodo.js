@@ -8,17 +8,7 @@ export function createExpandedTodoDiv(todo, list) {
     expandedTodoDiv.className = "expanded-todo-div";
     expandedTodoDiv.id = todo.id;
 
-    // Create child elements
-    const todoTitle = document.createElement("p");
-    const todoDescription = document.createElement("p");
-    const todoDueDate = document.createElement("p");
-    const todoPriority = document.createElement("p");
-    const deleteTodo = document.createElement("button");
-
-    // Give child elements text content
-    todoTitle.textContent = `Title: ${todo.title}`;
-    todoDescription.textContent = `Description: ${todo.description}`;
-    todoDueDate.textContent = `Due date: ${format(todo.dueDate, "dd/MM/yyyy")}`;
+    // Logic for changing text color for priority
     const priorityText = () => {
         let text;
         switch (todo.priority) {
@@ -34,13 +24,41 @@ export function createExpandedTodoDiv(todo, list) {
         }
         return text;
     }
-    todoPriority.innerHTML = `Priority: ${priorityText()}`;
+    
+    // Object with the todo properties for appending to the div
+    const todoProps = {
+        "Title:": todo.title,
+        "Description:": todo.description,
+        "Due date:": format(todo.dueDate, "dd/MM/yyyy"),
+        "Priority:": priorityText()
+    }
+
+    // create elements for the properties and append them to the expanded todo div
+    for (const prop in todoProps) {
+        const propRow = document.createElement("div");
+        propRow.classList = "todo-prop-row";
+        
+        const propName = document.createElement("div")
+        propName.classList = "todo-prop-name";
+        propName.textContent = `${prop}`;
+
+        const propValue = document.createElement("div");
+        propValue.classList = "todo-prop-value";
+        propValue.innerHTML = `${todoProps[prop]}`;
+
+        propRow.append(propName, propValue);
+
+        expandedTodoDiv.append(propRow);
+    }    
+
+    // Create delete button
+    const deleteTodo = document.createElement("button");
     deleteTodo.textContent = "Delete todo";
     
     deleteTodo.addEventListener("click", () => pressDeleteTodo(todo, list));
 
-    // Append child elements to parent
-    expandedTodoDiv.append(todoTitle, todoDescription, todoDueDate, todoPriority, deleteTodo);
+    // Append deleteButton element to parent
+    expandedTodoDiv.append(deleteTodo);
 
     return expandedTodoDiv;
 }
