@@ -16,9 +16,10 @@ header {
     display: flex;
     align-items: center;
     font-size: 0.46em;
-    background: linear-gradient(white, rgb(138, 138, 250) 60%);
+    background: linear-gradient(rgb(255, 152, 175), rgb(250, 84, 84) 60%);
     border-bottom: 2px solid rgb(112, 112, 112);
     padding-left: 3em;
+    color: white;
 }
 
 header > h1 {
@@ -49,8 +50,8 @@ header > h1::before {
     background:
       linear-gradient(
         to bottom,
-        rgb(255, 136, 202),
-        rgb(248, 101, 182));
+        rgb(49, 49, 49),
+        rgb(43, 42, 42));
     min-width: 350px;
     height: 100%;
     border-width: 5px;
@@ -61,7 +62,7 @@ header > h1::before {
     border-image: 
       linear-gradient(
         to bottom, 
-        rgb(255, 210, 241), 
+        rgb(151, 151, 151), 
         rgba(0, 0, 0, 0)
       ) 1 100%;
     
