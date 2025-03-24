@@ -1,4 +1,5 @@
-import "./style.css";
+import "./assets/styles/style.css";
+import "./assets/styles/todoProps.css"
 import createList, { lists } from "./modules/classes/listClass";
 import { renderLists, displayList } from "./modules/renderDOM";
 import { add } from "date-fns";
