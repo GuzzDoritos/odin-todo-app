@@ -1,6 +1,5 @@
 // cache DOM
 
-import { differenceInDays, format, parse, parseISO } from "date-fns";
 import { renderListCreatorModal, renderTodoCreatorModal } from "./dom_modules/renderModal";
 import createTodoDiv from "./dom_modules/createTodoDiv";
 import expandTodo from "./dom_modules/expandTodo";
