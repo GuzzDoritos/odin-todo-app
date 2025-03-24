@@ -46,7 +46,7 @@ export function displayList(list) {
     const todoList = list.todoList;
     
     for (const todo of todoList) {
-        const todoDiv = createTodoDiv(todo)
+        const todoDiv = createTodoDiv(todo, list)
         todoDisplay.appendChild(todoDiv);
     }
 

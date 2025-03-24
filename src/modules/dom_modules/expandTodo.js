@@ -1,7 +1,8 @@
 import { format } from "date-fns";
 import { HIGH, LOW, MEDIUM } from "../classes/todoClass";
+import pressDeleteTodo from "./pressDeleteTodo";
 
-export function createExpandedTodoDiv(todo) {
+export function createExpandedTodoDiv(todo, list) {
     // Create parent element
     const expandedTodoDiv = document.createElement("div");
     expandedTodoDiv.className = "expanded-todo-div";
@@ -12,6 +13,7 @@ export function createExpandedTodoDiv(todo) {
     const todoDescription = document.createElement("p");
     const todoDueDate = document.createElement("p");
     const todoPriority = document.createElement("p");
+    const deleteTodo = document.createElement("button");
 
     // Give child elements text content
     todoTitle.textContent = `Title: ${todo.title}`;
@@ -33,9 +35,12 @@ export function createExpandedTodoDiv(todo) {
         return text;
     }
     todoPriority.innerHTML = `Priority: ${priorityText()}`;
+    deleteTodo.textContent = "Delete todo";
+    
+    deleteTodo.addEventListener("click", () => pressDeleteTodo(todo, list));
 
     // Append child elements to parent
-    expandedTodoDiv.append(todoTitle, todoDescription, todoDueDate, todoPriority);
+    expandedTodoDiv.append(todoTitle, todoDescription, todoDueDate, todoPriority, deleteTodo);
 
     return expandedTodoDiv;
 }

@@ -1,7 +1,7 @@
 import { differenceInDays, format } from "date-fns";
 import { createExpandedTodoDiv, showExpandedTodo } from "./expandTodo";
 
-export default function createTodoDiv(todo) {
+export default function createTodoDiv(todo, list) {
     const todoDiv = document.createElement("div");
     todoDiv.classList = todo.isDone ? "todo-div todo-done" : "todo-div";
 
@@ -32,7 +32,7 @@ export default function createTodoDiv(todo) {
 
     textSideDiv.append(todoName, todoDescription, todoDate);
 
-    const expandedTodoDiv = createExpandedTodoDiv(todo, todoDiv);
+    const expandedTodoDiv = createExpandedTodoDiv(todo, list);
 
     todoDiv.append(buttonSideDiv, textSideDiv, expandedTodoDiv)
 
