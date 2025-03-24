@@ -14,7 +14,6 @@ export default function createTodoDiv(todo, list) {
     markAsDoneButton.addEventListener("click", () => {
         todo.toggleDone();
         todoDiv.classList.toggle("todo-done")
-        console.log(todo.isDone)
     })
 
     buttonSideDiv.appendChild(markAsDoneButton);
