@@ -16,4 +16,11 @@ export default class Todo {
     toggleDone() {
         this.isDone = this.isDone ? false : true;
     }    
+
+    update(title, description, dueDate, priority) {
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = priority;
+    }
 }
