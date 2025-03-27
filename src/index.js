@@ -17,9 +17,6 @@ function addDefaultTodo() {
     defaultTodoCreated = true;
 }
 
-
-window.addEventListener("DOMContentLoaded", () => {
-    addDefaultTodo();
-    renderLists(lists);
-    displayList(lists[0])
-})
+addDefaultTodo();
+renderLists(lists);
+displayList(lists[0]);
