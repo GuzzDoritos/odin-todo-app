@@ -1,6 +1,8 @@
 import { format } from "date-fns";
 import { HIGH, LOW, MEDIUM } from "../classes/todoClass";
 import pressDeleteTodo from "./pressDeleteTodo";
+import 'boxicons';
+import editTodoProperty from "./editTodoProperty";
 
 export function createExpandedTodoDiv(todo, list) {
     // Create parent element
@@ -8,48 +10,38 @@ export function createExpandedTodoDiv(todo, list) {
     expandedTodoDiv.className = "expanded-todo-div";
     expandedTodoDiv.id = todo.id;
 
-    // Logic for changing text color for priority
-    const priorityText = () => {
-        let text;
-        switch (todo.priority) {
-            case LOW:
-                text = '<span style="color: blue">Low</span>';
-                break;
-            case MEDIUM:
-                text = '<span style="color: yellow">Medium</span>';
-                break;
-            case HIGH:
-                text = '<span style="color: red">High</span>';
-                break;
-        }
-        return text;
-    }
     
     // Object with the todo properties for appending to the div
-    const todoProps = {
-        "Title:": todo.title,
-        "Description:": todo.description,
-        "Due date:": format(todo.dueDate, "dd/MM/yyyy"),
-        "Priority:": priorityText()
-    }
+    const todoPropStrings = ["Title:", "Description:", "Due date:", "Priority:"];
+    const orderedTodoProps = [`title`, `description`, `dueDate`, `priority`];
 
     // create elements for the properties and append them to the expanded todo div
-    for (const prop in todoProps) {
+    orderedTodoProps.forEach((prop, index) => {
         const propRow = document.createElement("div");
         propRow.classList = "todo-prop-row";
         
         const propName = document.createElement("div")
         propName.classList = "todo-prop-name";
-        propName.textContent = `${prop}`;
+        propName.textContent = `${todoPropStrings[index]}`;
 
-        const propValue = document.createElement("div");
-        propValue.classList = "todo-prop-value";
-        propValue.innerHTML = `${todoProps[prop]}`;
+        const propValueDiv = document.createElement("div");
+        propValueDiv.classList = "todo-prop-value";
+        
+        const propValueHolder = document.createElement("div");
+        propValueHolder.className = "prop-value-holder";
+        
+        const innerPropValue = setInnerPropValue(prop, todo);
 
-        propRow.append(propName, propValue);
+        propValueHolder.innerHTML = `${innerPropValue} <box-icon type='solid' name='edit-alt'></box-icon>`;
+
+        propValueDiv.append(propValueHolder);
+
+        propValueHolder.addEventListener("click", () => editTodoProperty(propValueDiv, prop, todo, list, expandedTodoDiv));
+
+        propRow.append(propName, propValueDiv);
 
         expandedTodoDiv.append(propRow);
-    }    
+    });
 
     // Create delete button
     const deleteTodo = document.createElement("button");
