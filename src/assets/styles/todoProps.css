@@ -3,9 +3,35 @@
     grid-template-columns: 100px 1fr;
     gap: 20px;
     margin-bottom: 5px;
+    align-items: center;
 }
 
 .todo-prop-name {
     text-align: right;
     font-weight: bold;
+}
+
+.todo-prop-value {
+    display: flex;
+    align-items: center;
+}
+
+.prop-value-holder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.prop-value-holder > box-icon {
+    opacity: 0;
+}
+
+.prop-value-holder:hover, .prop-value-holder:hover > box-icon {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.edit-input {
+    width: 500px;
+    margin: 0;
 }
