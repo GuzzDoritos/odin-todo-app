@@ -63,6 +63,36 @@ export function createExpandedTodoDiv(todo, list) {
     return expandedTodoDiv;
 }
 
+export function setInnerPropValue(prop, todo) {
+
+    // Logic for changing text color for priority
+    const priorityText = () => {
+        let text;
+        switch (todo.priority) {
+            case LOW:
+                text = '<span style="color: blue" class="priority-display">Low</span>';
+                break;
+            case MEDIUM:
+                text = '<span style="color: yellow" class="priority-display">Medium</span>';
+                break;
+            case HIGH:
+                text = '<span style="color: red" class="priority-display">High</span>';
+                break;
+        }
+        return text;
+    }
+
+    let innerPropValue;
+    if (todo[prop] === todo.dueDate) {
+        innerPropValue = format(todo.dueDate, "dd/MM/yyyy");
+    } else if (todo[prop] === todo.priority) {
+        innerPropValue = priorityText();
+    } else {
+        innerPropValue = todo[prop];
+    }
+    return innerPropValue;
+}
+
 export function showExpandedTodo(expandedTodoDiv) {
     expandedTodoDiv.classList.toggle("show");
 }
