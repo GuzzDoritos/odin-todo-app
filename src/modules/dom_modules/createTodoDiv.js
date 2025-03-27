@@ -37,7 +37,12 @@ export default function createTodoDiv(todo, list) {
 
 
     todoDiv.addEventListener("click", (event) => {
-        if (event.target.classList.contains("mark-as-done-btn")) return;
+        const exclude = ["mark-as-done-btn", "prop-value-holder", "edit-input", "edit-ok-button", "priority-display"];
+        let cancel = false;
+        exclude.forEach(ex => {
+            if (event.target.classList.contains(ex)) cancel = true;
+        })
+        if (cancel) return;
         showExpandedTodo(expandedTodoDiv)
     })
     return todoDiv;
