@@ -4,6 +4,7 @@ import { displayList, renderLists } from "../renderDOM";
 import validateInput from "./validateInput";
 import { format } from "date-fns";
 import dateFormatter from "../dateFormatter";
+import { saveData } from "../local_storage/localStorageHandler";
 
 export function renderListCreatorModal(modal) {
     modal.showModal();
@@ -24,7 +25,8 @@ export function renderListCreatorModal(modal) {
 
         createList(name);
 
-        renderLists(lists);        
+        renderLists(lists);
+        saveData();        
         modal.close();
     })
 
@@ -71,6 +73,7 @@ export function renderTodoCreatorModal(modal, list) {
         modal.replaceChildren();
         modal.close();
         displayList(list);
+        saveData();
     }
 
     function validateForm(priority, title, dueDateValue) {        

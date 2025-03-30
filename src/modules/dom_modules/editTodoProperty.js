@@ -3,6 +3,7 @@ import { displayList } from "../renderDOM";
 import { setInnerPropValue, showExpandedTodo } from "./expandTodo";
 import dateFormatter from "../dateFormatter";
 import { createPriorityInput } from "./createInput";
+import { saveData } from "../local_storage/localStorageHandler";
 
 export default function editTodoProperty(propValueDiv, prop, todo, list, expandedTodoDiv) {
     propValueDiv.replaceChildren();
@@ -68,19 +69,8 @@ export default function editTodoProperty(propValueDiv, prop, todo, list, expande
             }
         } 
         todo[prop] = newValue;
-        // propValueDiv.textContent = "";        
-        // const propValueHolder = document.createElement("div");
-        // propValueHolder.className = "prop-value-holder";
         
-        // const innerPropValue = setInnerPropValue(prop, todo);
-
-        // propValueHolder.innerHTML = `${innerPropValue} <box-icon type='solid' name='edit-alt'></box-icon>`;
-
-        // propValueDiv.append(propValueHolder);
-
-        // propValueHolder.addEventListener("click", () => editTodoProperty(propValueDiv, prop, todo, list));
+        saveData();
         displayList(list);
-        showExpandedTodo(expandedTodoDiv);
-        console.log(todo);
     }
 }
