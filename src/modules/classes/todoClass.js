@@ -4,9 +4,9 @@ export const MEDIUM = 1;
 export const LOW = 0;
 
 export default class Todo {
-    constructor(title, description, dueDate, priority, listID) {
-        this.id = crypto.randomUUID();
-        this.listID = listID
+    constructor(title, description, dueDate, priority, id, listID) {
+        this.id = id;
+        this.listID = listID;
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;

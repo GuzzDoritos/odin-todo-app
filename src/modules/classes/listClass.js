@@ -1,17 +1,17 @@
 import Todo from "./todoClass";
 
 // Array containing all lists
-export const lists = []
+export let lists = []
 
 class List {
-    constructor (name) {
+    constructor (name, id) {
         this.name = name;
-        this.id = crypto.randomUUID();
+        this.id = id;
         this.todoList = []; // Array containing all todos in a given list
     }
 
-    addTodo(title, description, dueDate, priority ) { //Valid priority values: HIGH = 2, MEDIUM = 1, LOW = 0. dueDate is always a Date object
-        this.todoList.push(new Todo(title, description, dueDate, priority, this.id));
+    addTodo(title, description, dueDate, priority, id) { //Valid priority values: HIGH = 2, MEDIUM = 1, LOW = 0. dueDate is always a Date object
+        this.todoList.push(new Todo(title, description, dueDate, priority, id, this.id));
     }
 
     deleteTodo(id) {
@@ -37,8 +37,12 @@ export function deleteList(id) {
     })
 }
 
-export default function createList(name) {
-    const list = new List(name);
+export default function createList(name, id) {
+    const list = new List(name, id);
     lists.push(list);
     return list;
+}
+
+export function generateRandomListId() {
+    return crypto.randomUUID();
 }

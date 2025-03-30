@@ -3,6 +3,7 @@
 import { renderListCreatorModal, renderTodoCreatorModal } from "./dom_modules/renderModal";
 import createTodoDiv from "./dom_modules/createTodoDiv";
 import expandTodo from "./dom_modules/expandTodo";
+import { setLastOpenlistIndex } from "..";
 
 const addListBtn = document.querySelector("#add-list");
 const listsList = document.querySelector("#lists-list");
@@ -19,6 +20,7 @@ export function renderLists(lists) {
         listBranch.className = "list-branch";
         listBranch.textContent = list.name;
         listBranch.addEventListener("click", () => {
+            setLastOpenlistIndex(lists.indexOf(list));
             displayList(list);
         })
 
@@ -44,9 +46,11 @@ export function displayList(list) {
 
     const todoList = list.todoList;
     
-    for (const todo of todoList) {
+    if (todoList.length !== 0) {
+        for (const todo of todoList) {
         const todoDiv = createTodoDiv(todo, list)
         todoDisplay.appendChild(todoDiv);
+        }
     }
 
     todoDisplay.appendChild(addTodoBtn);
