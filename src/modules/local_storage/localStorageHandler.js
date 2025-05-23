@@ -2,7 +2,7 @@ import { add } from "date-fns";
 import createList, { lists } from "../classes/listClass";
 import { HIGH } from "../classes/todoClass";
 import populateStorage from "./populateStorage";
-import { lastOpenListIndex } from "../..";
+import { lastOpenListIndex, setLastOpenlistIndex } from "../..";
 
 export const USER_DATA = "userLists";
 export const LAST_OPEN_LIST = "lastOpenListIndex";
@@ -23,6 +23,7 @@ export function loadUserLists() {
         const defaultList = createList("Default");
         const date = new Date();
         defaultList.addTodo("Create a new to-do!", "Press on the button that is somewhere in this page to create a new to-do task.", add(date, {days: 1}), HIGH);
+        setLastOpenlistIndex(0)
       }
       addDefaultTodo();
       saveData();
