@@ -1,5 +1,6 @@
 import { differenceInDays, format } from "date-fns";
 import { createExpandedTodoDiv, showExpandedTodo } from "./expandTodo";
+import { saveData } from "../local_storage/localStorageHandler";
 
 export default function createTodoDiv(todo, list) {
     const todoDiv = document.createElement("div");
@@ -13,7 +14,8 @@ export default function createTodoDiv(todo, list) {
     markAsDoneButton.textContent = "X";
     markAsDoneButton.addEventListener("click", () => {
         todo.toggleDone();
-        todoDiv.classList.toggle("todo-done")
+        todoDiv.classList.toggle("todo-done");
+        saveData();
     })
 
     buttonSideDiv.appendChild(markAsDoneButton);
