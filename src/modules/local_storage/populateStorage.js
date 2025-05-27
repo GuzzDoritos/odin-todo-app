@@ -9,7 +9,7 @@ export default function populateStorage() {
         list.todoList.forEach((todo, index) => {
             savedList.addTodo(todo.title, todo.description, todo.dueDate, todo.priority, todo.id);
             if (todo.hasOwnProperty("isDone")) {
-                savedList[index].isDone = todo.isDone;
+                savedList.todoList[index].isDone = todo.isDone;
             }
         })
     })
