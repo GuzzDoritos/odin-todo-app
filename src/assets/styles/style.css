@@ -71,7 +71,7 @@ header > h1 {
     padding-left: 10px;
 }
 
-#lists-list > ul > li:hover {
+#lists-list > ul > li:hover, #add-list:hover {
     background-color: rgb(250, 212, 255);
     color: black;
 }
