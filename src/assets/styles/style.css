@@ -36,3 +36,13 @@ header > h1 {
 
     grid-template-columns: 1fr 2fr;
 }
+
+.expanded-todo-div {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.expanded-todo-div.show {
+    display: block;
+    max-height: 500px;
+}
