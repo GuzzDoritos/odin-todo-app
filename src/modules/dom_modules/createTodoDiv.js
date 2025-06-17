@@ -24,14 +24,12 @@ export default function createTodoDiv(todo, list) {
     textSideDiv.className = "todo-div-text-side";
 
     const todoName = document.createElement("h3");
-    const todoDescription = document.createElement("p");
     const todoDate = document.createElement("p");
 
     todoName.textContent = todo.title;
-    todoDescription.textContent = todo.description;
     todoDate.textContent = format(todo.dueDate, "dd/MM/yyyy") + " - " + "in " + (differenceInDays(todo.dueDate, new Date()) + 1) + " day(s).";
 
-    textSideDiv.append(todoName, todoDescription, todoDate);
+    textSideDiv.append(todoName, todoDate);
 
     const expandedTodoDiv = createExpandedTodoDiv(todo, list);
 
