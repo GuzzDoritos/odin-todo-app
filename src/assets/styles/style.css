@@ -104,3 +104,26 @@ header > h1 {
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
+
+.todo-div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mark-as-done-btn {
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid red;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    color: red;
+}
+
+.todo-div.todo-done > .todo-div-button-side > .mark-as-done-btn {
+    background: red;
+    color: white;
+}
+
+.todo-div-text-side {
+    flex-grow: 1;
+}
