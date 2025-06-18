@@ -21,11 +21,6 @@ body {
     margin-top: 100px;
 }
 
-header {
-    background-color: rgb(73, 73, 73);
-    padding-left: 10px;
-}
-
 header > h1 {
     color: rgb(190, 190, 190);
     font-size: 0.9em;
@@ -108,20 +103,23 @@ header > h1 {
 .todo-div {
     display: flex;
     flex-wrap: wrap;
+    gap: 0.8em;
 }
 
 .mark-as-done-btn {
     background: rgba(0, 0, 0, 0);
-    border: 1px solid red;
+    border: 1px solid rgb(250, 212, 255);
     width: 30px;
     height: 30px;
     border-radius: 100px;
-    color: red;
+    color: rgb(250, 212, 255);
+    font-size: 1.2em;
+    font-weight: 800;
 }
 
 .todo-div.todo-done > .todo-div-button-side > .mark-as-done-btn {
-    background: red;
-    color: white;
+    background: rgb(250, 212, 255);
+    color: rgb(31, 27, 41);
 }
 
 .todo-div-text-side {
