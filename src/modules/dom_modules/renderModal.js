@@ -66,7 +66,7 @@ export function renderTodoCreatorModal(modal, list) {
 
         if (!validateForm(priority, title, dueDateValue)) return;
 
-        const dueDate = dateFormatter(dueDateValue);
+        const dueDate = dueDateValue + "T00:00:00";;
 
         list.addTodo(title, description, dueDate, Number.parseInt(priority));
 

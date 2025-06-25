@@ -62,8 +62,7 @@ export default function editTodoProperty(propValueDiv, prop, todo, list, expande
                 case `description`:
                     return inputBox.value;
                 case `dueDate`:
-                    const formattedDate = dateFormatter(inputBox.value);
-                    return formattedDate;
+                    return inputBox.value + "T00:00:00";
                 case `priority`:
                     return Number.parseInt(inputBox.value);
             }
