@@ -139,14 +139,14 @@ header > h1 {
     font-size: 0.8em;
 }
 
-.add-todo-btn {
+.add-todo-btn, .expanded-todo-div > button {
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid var(--mainColor);
     border-radius: 8px;
     padding: 5px;
 }
 
-.add-todo-btn:hover {
+.add-todo-btn:hover, .expanded-todo-div > button:hover {
     background-color: var(--mainColor);
     color: rgb(31, 27, 41);
 }
