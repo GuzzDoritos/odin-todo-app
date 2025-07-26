@@ -66,13 +66,13 @@ export function setInnerPropValue(prop, todo) {
         let text;
         switch (todo.priority) {
             case LOW:
-                text = '<span style="color: blue" class="priority-display">Low</span>';
+                text = '<span style="color: #6ba1ff" class="priority-display">Low</span>';
                 break;
             case MEDIUM:
-                text = '<span style="color: yellow" class="priority-display">Medium</span>';
+                text = '<span style="color: #ffe066" class="priority-display">Medium</span>';
                 break;
             case HIGH:
-                text = '<span style="color: red" class="priority-display">High</span>';
+                text = '<span style="color: #ff4f4f" class="priority-display">High</span>';
                 break;
         }
         return text;
