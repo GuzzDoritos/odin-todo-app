@@ -79,11 +79,14 @@ export function setInnerPropValue(prop, todo) {
     }
 
     let innerPropValue;
-    if (todo[prop] === todo.dueDate) {
+    switch(todo[prop]) {
+        case (todo.dueDate):
         innerPropValue = format(todo.dueDate, "dd/MM/yyyy");
-    } else if (todo[prop] === todo.priority) {
+            break;
+        case (todo.priority):
         innerPropValue = priorityText();
-    } else {
+            break;
+        default:
         innerPropValue = todo[prop];
     }
     return innerPropValue;
