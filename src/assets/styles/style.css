@@ -150,3 +150,45 @@ header > h1 {
     background-color: var(--mainColor);
     color: rgb(31, 27, 41);
 }
+
+#create {
+    margin: auto;
+    padding: 10px;
+    background-color: var(--mainColor);
+}
+
+#create > * {
+    color: rgb(31, 27, 41);
+}
+
+#create > label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px;
+}
+
+#create > label > input, select, option {
+    color: rgb(31, 27, 41);
+}
+
+#create > button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(31, 27, 41);
+    border-radius: 8px;
+    padding: 5px;
+    width: 100%;
+}
+
+#create > button:hover {
+    background-color: rgb(31, 27, 41);
+    color: var(--mainColor);    
+}
+
+.prop-value-holder > svg {
+    fill: rgba(0, 0, 0, 0);
+}
+
+.prop-value-holder:hover > svg {
+    fill: currentColor;
+}
