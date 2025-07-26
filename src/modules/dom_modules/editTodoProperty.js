@@ -26,6 +26,7 @@ export default function editTodoProperty(propValueDiv, prop, todo, list, expande
             case `priority`:
                 inputBox = createPriorityInput().selectInput;
                 inputBox.className = "edit-input";
+                inputBox.value = todo[prop];
                 // propValueDiv.append(inputBox.input);
                 break;
         }
