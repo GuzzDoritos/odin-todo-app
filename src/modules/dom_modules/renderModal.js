@@ -2,8 +2,6 @@ import { createInput, createPriorityInput } from "./createInput"
 import createList, {lists} from "../classes/listClass";
 import { displayList, renderLists } from "../renderDOM";
 import validateInput from "./validateInput";
-import { format } from "date-fns";
-import dateFormatter from "../dateFormatter";
 import { saveData } from "../local_storage/localStorageHandler";
 
 export function renderListCreatorModal(modal) {

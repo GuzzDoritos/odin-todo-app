@@ -1,11 +1,9 @@
 import { format } from "date-fns";
 import { displayList } from "../renderDOM";
-import { setInnerPropValue, showExpandedTodo } from "./expandTodo";
-import dateFormatter from "../dateFormatter";
 import { createPriorityInput } from "./createInput";
 import { saveData } from "../local_storage/localStorageHandler";
 
-export default function editTodoProperty(propValueDiv, prop, todo, list, expandedTodoDiv) {
+export default function editTodoProperty(propValueDiv, prop, todo, list) {
     propValueDiv.replaceChildren();
 
     let inputBox = document.createElement("input");
@@ -21,13 +19,11 @@ export default function editTodoProperty(propValueDiv, prop, todo, list, expande
             case `dueDate`:
                 inputBox.type = "date";
                 inputBox.value = format(todo[prop], "yyyy-MM-dd");
-                // propValueDiv.append(inputBox);
                 break;
             case `priority`:
                 inputBox = createPriorityInput().selectInput;
                 inputBox.className = "edit-input";
                 inputBox.value = todo[prop];
-                // propValueDiv.append(inputBox.input);
                 break;
         }
     }
