@@ -2,7 +2,6 @@
 
 import { renderListCreatorModal, renderTodoCreatorModal } from "./dom_modules/renderModal";
 import createTodoDiv from "./dom_modules/createTodoDiv";
-import expandTodo from "./dom_modules/expandTodo";
 import { setLastOpenlistIndex } from "..";
 
 const addListBtn = document.querySelector("#add-list");
